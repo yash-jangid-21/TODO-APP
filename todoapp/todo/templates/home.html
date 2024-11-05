@@ -1,0 +1,140 @@
+<!-- Owned by Yash Jangid 
+# github_id = yash-jangid-21
+# linkeldn_id = yash-21-yash -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do App</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+
+        .todo-container {
+            margin-top: 50px;
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .list-group-item {
+            background-color: #2c2c2c;
+            border: 1px solid #444;
+            color: #e0e0e0;
+        }
+
+        .list-group-item.completed {
+            text-decoration: line-through;
+            opacity: 0.6;
+        }
+
+        .list-group-item .High {
+            color: #ff3b30;
+        }
+
+        .list-group-item .Medium {
+            color: #ffcc00;
+        }
+
+        .list-group-item .Low {
+            color: #4caf50;
+        }
+
+        .btn {
+            border-radius: 20px;
+        }
+
+        .btn-primary {
+            background-color: #bb86fc;
+            border-color: #bb86fc;
+        }
+
+        .btn-primary:hover {
+            background-color: #9e8dff;
+            border-color: #9e8dff;
+        }
+
+        .btn-success {
+            background-color: #03dac6;
+            border-color: #03dac6;
+        }
+
+        .btn-success:hover {
+            background-color: #03bfae;
+            border-color: #03bfae;
+        }
+
+        .btn-danger {
+            background-color: #cf6679;
+            border-color: #cf6679;
+        }
+
+        .btn-danger:hover {
+            background-color: #b80043;
+            border-color: #b80043;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container todo-container">
+        <h1 class="text-center mb-4 opacity-75 font-monospace">To-Do List</h1>
+        <div class="row">
+            <div class="col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+                <a href="/add/" class="btn btn-primary mb-3">Add New Task</a>
+                <form class="mb-4">
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="search" placeholder="Search tasks..."
+                            aria-label="Search tasks">
+                        <button class="btn btn-primary" type="submit">Search</button>
+                    </div>
+                </form>
+                <ul class="list-group" id="taskList">
+                    {% if alert.flag %}
+                    <div class="alert alert-{{alert.role}} alert-dismissible fade show" role="alert">
+                        <strong>{{alert.name}}</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    {% endif %}
+                    {% for prioritys in priority%}
+                    {% for tasks in data %}
+                    {% if tasks.task_priority == prioritys %}
+                    <li class="list-group-item d-flex justify-content-between align-items-center todo-item" id="cload">
+                        <div>
+                            <strong>{{tasks.task_name}}</strong><br>
+                            <span class={{tasks.task_priority}}>{{tasks.task_priority}} Priority</span><br>
+                            Due: {{tasks.task_duedate}}
+                        </div>
+                        <div>
+                            <a href="/update/{{tasks.id}}/" class="btn btn-success btn-sm ml-2 complete-btn">Update</a>
+                            <a href="/delete/{{tasks.id}}/" class="btn btn-danger btn-sm ml-2 delete-btn">Delete</a>
+                        </div>
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+                    {% endfor %}
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
+<!-- Owned by Yash Jangid 
+# github_id = yash-jangid-21
+# linkeldn_id = yash-21-yash -->

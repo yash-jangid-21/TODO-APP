@@ -1,0 +1,134 @@
+<!-- Owned by Yash Jangid 
+# github_id = yash-jangid-21
+# linkeldn_id = yash-21-yash -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do App</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+
+        .todo-container {
+            margin-top: 50px;
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .form-control,
+        .form-check-input {
+            background-color: #333;
+            color: #e0e0e0;
+            border: 1px solid #444;
+            border-radius: 4px;
+        }
+
+        .form-control::placeholder {
+            color: #888;
+        }
+
+        .form-control:focus {
+            border-color: #bb86fc;
+            box-shadow: 0 0 0 0.2rem rgba(187, 134, 252, 0.25);
+        }
+
+        .form-check-input:checked~.form-check-label::before {
+            background-color: #bb86fc;
+            border-color: #bb86fc;
+        }
+
+        .form-check-label {
+            color: #e0e0e0;
+        }
+
+        .btn {
+            border-radius: 20px;
+        }
+
+        .btn-primary {
+            background-color: #bb86fc;
+            border-color: #bb86fc;
+        }
+
+        .btn-primary:hover {
+            background-color: #9e8dff;
+            border-color: #9e8dff;
+        }
+
+        .form-group label {
+            color: #e0e0e0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container todo-container">
+        <h1 class="text-center mb-4">Add New Task</h1>
+        <div class="row">
+            <div class="col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+                <form id="taskForm" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label>Task Name</label>
+                        <input type="text" class="form-control" value="{{data.task_name}}" name="taskname"
+                            placeholder="Enter task name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Priority</label>
+                        <div class="form-check">
+                            {% if data.task_priority == 'High' %}
+                            <input class="form-check-input" type="radio" checked name="priority" value="High" required>
+                            {% else %}
+                            <input class="form-check-input" type="radio" checked name="priority" value="High" required>
+                            {% endif %}
+                            <label class="form-check-label">
+                                High
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            {% if data.task_priority == 'Medium' %}
+                            <input class="form-check-input" checked type="radio" name="priority" value="Medium">
+                            {% else %}
+                            <input class="form-check-input" type="radio" name="priority" value="Medium">
+                            {% endif %}
+                            <label class="form-check-label">
+                                Medium
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            {% if data.task_priority == 'Low' %}
+                            <input class="form-check-input" checked type="radio" name="priority" value="Low">
+                            {% else %}
+                            <input class="form-check-input" type="radio" name="priority" value="Low">
+                            {% endif %}
+                            <label class="form-check-label">
+                                Low
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Due Date</label>
+                        <input type="date" value="{{data.task_duedate}}" name="date" class="form-control" required>
+                    </div>
+                    <button class="btn btn-primary btn-block" type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
+<!-- Owned by Yash Jangid 
+# github_id = yash-jangid-21
+# linkeldn_id = yash-21-yash -->
