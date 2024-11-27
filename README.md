@@ -22,8 +22,8 @@ To run this application locally, follow these steps:
 1. **Clone the repository:**
 
     ```bash
-    git clone https://github.com/im-yash21/TO-DO-APP.git
-    cd TO-DO-APP
+    git clone https://github.com/yash-jangid-21/TODO-APP.git
+    cd TODO-APP
     ```
 
 2. **Create and activate a virtual environment:**
