@@ -1,8 +1,6 @@
-# Owned by Yash Jangid 
-# github_id = im-yash21
-# leetcode_id = im-yash21
-# linkeldn_id = im-yash21
-# feel free to contact me on my email-id : yashjangid0021@gamil.com
+# Owned by Yash Jangid  
+# github_id = yash-jangid-21
+# linkeldn_id = yash-21-yash
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
